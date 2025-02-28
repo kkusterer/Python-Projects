@@ -1,4 +1,5 @@
 
+
 while True:
     commandinhome = input('~$ (Home)')
 
@@ -10,8 +11,50 @@ while True:
         print("ls: opens slected folder you are in Example: ~$(Downloads) ls ")
         print('ping: this command does not work yet')
 
-    if commandinhome == "ping 8.8.8.8":
-        print("ping works")
+
+    if commandinhome == 'ping 0.0.0.0':
+        if commandinhome == 'ping 0.0.0.0':
+            print("0.0.0.0 is up")
+
+    if commandinhome == 'ping 1.1.1.1':
+        if commandinhome == 'ping 1.1.1.1':
+            print("1.1.1.1 is up")
+
+    if commandinhome == 'ping 2.2.2.2':
+        if commandinhome == 'ping 2.2.2.2':
+            print("2.2.2.2 is up")
+
+    if commandinhome == 'ping 3.3.3.3':
+        if commandinhome == 'ping 3.3.3.3':
+            print("3.3.3.3 is up")
+
+    if commandinhome == 'ping 4.4.4.4':
+        if commandinhome == 'ping 4.4.4.4':
+            print("4.4.4.4 is up")
+
+    if commandinhome == 'ping 5.5.5.5':
+        if commandinhome == 'ping 5.5.5.5':
+            print("5.5.5.5 is up")
+
+    if commandinhome == 'ping 6.6.6.6':
+        if commandinhome == 'ping 6.6.6.6':
+            print("6.6.6.6 is up")
+
+    if commandinhome == 'ping 7.7.7.7':
+        if commandinhome == 'ping 7.7.7.7':
+            print("7.7.7.7 is up")
+
+    if commandinhome == 'ping 8.8.8.8':
+        if commandinhome == 'ping 8.8.8.8':
+            print("8.8.8.8 is up")
+
+    if commandinhome == 'ping 9.9.9.9':
+        if commandinhome == 'ping 9.9.9.9':
+            print("9.9.9.9 is up")
+
+    if commandinhome == 'ping 10.10.10.10':
+        if commandinhome == 'ping 10.10.10.10':
+            print("10.10.10.10 is up")
 
 
     if commandinhome == 'ls':
