@@ -45,6 +45,9 @@ while True:
                                 if Shot2_in_2 == '2':
                                        print("you are a babby")
                                        break
+                        if Move_forward =='n':
+                               print("you are a babby")
+                               break
             if Shot1_in_2 == '2':
                    print("you are a babby")
                    break
@@ -75,9 +78,15 @@ while True:
                                             if Shot3_in_3 =='3':
                                                    print('you are a babby')
                                                    break
+                                    if Move_forward == 'n':
+                                           print("you are a babby")
+                                           break
                                 if Shot2_in_3 =='2':
                                        print("you are a babby")
                                        break
+                        if Move_forward =='n':
+                               print("you are a babby")
+                               break
             if Shot1_in_3 == '2':
                    print("you are a babby")
                    break
@@ -116,12 +125,21 @@ while True:
                                                         if Shot4_in_4 =='2':
                                                                print("you are a babby")
                                                                break
+                                                if Move_forward =='n':
+                                                       print("you are a babby")
+                                                       break
                                             if Shot3_in_4 == '2':
                                                    print('you are a babby')
                                                    break
+                                    if Move_forward =='n':
+                                           print("you are a babby")
+                                           break
                                 if Shot2_in_4 == '2':
                                        print("you are a babby")
                                        break
+                        if Move_forward == 'n':
+                               print("you are a babby")
+                               break
             if Shot1_in_4 == '2':
                    print("you are a babby")
                    break
