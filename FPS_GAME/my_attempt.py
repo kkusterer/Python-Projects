@@ -20,6 +20,9 @@ while True:
                         print("You have killed all of the enimies")
                         print('Good Job Soldier')
                         break 
+            if Shot1_in_1 =='2':
+                   print("you are a babby.")
+                   break
 
         if number_of_enimies == '2':
                        
@@ -38,6 +41,13 @@ while True:
                                     print("You have killed all of the enimies")
                                     print('Good Job Soldier')
                                     break
+
+                                if Shot2_in_2 == '2':
+                                       print("you are a babby")
+                                       break
+            if Shot1_in_2 == '2':
+                   print("you are a babby")
+                   break
             
         if number_of_enimies == '3':
                        
@@ -62,6 +72,15 @@ while True:
                                                 print("You have killed all of the enimies")
                                                 print('Good Job Soldier')
                                                 break
+                                            if Shot3_in_3 =='3':
+                                                   print('you are a babby')
+                                                   break
+                                if Shot2_in_3 =='2':
+                                       print("you are a babby")
+                                       break
+            if Shot1_in_3 == '2':
+                   print("you are a babby")
+                   break
 
         if number_of_enimies == '4':
               
@@ -94,10 +113,15 @@ while True:
                                                             print("You have killed all of the enimies")
                                                             print('Good Job Soldier')
                                                             break
-
-    if Shot1_in_1 or Shot1_in_2 or Shot2_in_2 or Shot1_in_3 or Shot2_in_3 or Shot3_in_3 or Shot1_in_4 or Shot2_in_4 or Shot3_in_4 =='2':
-        print("you are a babby")
-        break
-    if Move_forward == 'n':
-        print("you are a babby")
-        break
+                                                        if Shot4_in_4 =='2':
+                                                               print("you are a babby")
+                                                               break
+                                            if Shot3_in_4 == '2':
+                                                   print('you are a babby')
+                                                   break
+                                if Shot2_in_4 == '2':
+                                       print("you are a babby")
+                                       break
+            if Shot1_in_4 == '2':
+                   print("you are a babby")
+                   break
