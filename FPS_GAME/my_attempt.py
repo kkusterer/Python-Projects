@@ -2,7 +2,7 @@ Start_amo = '10'
 Player_health = '100'
 
 player_name = input('player name:')
-number_of_enimies = input("How meany enmies do you wnat:")
+number_of_enimies = input("How meany enmies do you wnat (max is 4):")
 print(f'Name:{player_name}')
 print(f'Health:{Player_health}')
 print(f'Number of enimies (max is 5): {number_of_enimies}')
