@@ -63,7 +63,41 @@ while True:
                                                 print('Good Job Soldier')
                                                 break
 
-    if Shot1_in_1 or Shot1_in_2 or Shot2_in_2 or Shot1_in_3 or Shot2_in_3 or Shot3_in_3 =='2':
+        if number_of_enimies == '4':
+              
+            Shot1_in_4 = input("you encounter an enemy what do you do.   Shoot(1)  Exit(2)")
+            if Shot1_in_4 =='1':
+                        Bullets_arter_1_in_4 = int(Start_amo) - 2
+                        print(f'you hit him in 2 shots. you have {Bullets_arter_1_in_4} bullets')
+
+                        Move_forward = input('do you want to move forward   y/n')
+                        if Move_forward == 'y':
+                                Shot2_in_4 = input("you encounter an other enemy what do you do.   Shoot(1)  Exit(2)")
+                                if Shot2_in_4 =='1':
+                                    Bullets_arter_2_in_4 = int(Bullets_arter_1_in_4) - 3
+                                    print(f'you hit him in 3 shots. you have {Bullets_arter_2_in_4}')
+                                    
+                                    Move_forward = input('do you want to move forward   y/n')
+                                    if Move_forward == 'y':
+                                            Shot3_in_4 = input("you encounter an other enemy what do you do.   Shoot(1)  Exit(2)")
+                                            if Shot3_in_4 =='1':
+                                                Bullets_arter_3_in_4 = int(Bullets_arter_2_in_4) - 2
+                                                print(f'you hit him in 2 shots. you have {Bullets_arter_3_in_4}')
+                                                    
+                                                Move_forward = input('do you want to move forward   y/n')
+                                                if Move_forward == 'y':
+                                                        Shot4_in_4 = input("you encounter an other enemy what do you do.   Shoot(1)  Exit(2)")
+                                                        if Shot4_in_4 =='1':
+                                                            Bullets_arter_4_in_4 = int(Bullets_arter_3_in_4) - 1
+                                                            print(f'you hit him in 1 shots. you have {Bullets_arter_4_in_4}')
+
+
+
+                                                print("You have killed all of the enimies")
+                                                print('Good Job Soldier')
+                                                break
+
+    if Shot1_in_1 or Shot1_in_2 or Shot2_in_2 or Shot1_in_3 or Shot2_in_3 or Shot3_in_3 or Shot1_in_4 or Shot2_in_4 or Shot3_in_4 =='2':
         print("you are a babby")
         break
     if Move_forward == 'n':
