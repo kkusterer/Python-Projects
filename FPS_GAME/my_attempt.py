@@ -91,11 +91,9 @@ while True:
                                                             Bullets_arter_4_in_4 = int(Bullets_arter_3_in_4) - 1
                                                             print(f'you hit him in 1 shots. you have {Bullets_arter_4_in_4}')
 
-
-
-                                                print("You have killed all of the enimies")
-                                                print('Good Job Soldier')
-                                                break
+                                                            print("You have killed all of the enimies")
+                                                            print('Good Job Soldier')
+                                                            break
 
     if Shot1_in_1 or Shot1_in_2 or Shot2_in_2 or Shot1_in_3 or Shot2_in_3 or Shot3_in_3 or Shot1_in_4 or Shot2_in_4 or Shot3_in_4 =='2':
         print("you are a babby")
