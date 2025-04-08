@@ -143,3 +143,6 @@ while True:
             if Shot1_in_4 == '2':
                    print("you are a babby")
                    break
+    if start =='n':
+           print("you are a babby")
+           break    
