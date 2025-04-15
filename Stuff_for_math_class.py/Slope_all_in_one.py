@@ -32,3 +32,8 @@ while True:
                         slope = int(arter_calc1_y2_y1) / int(arter_calc1_x2_x1)
 
                         print(f"y-{y1_cord}={slope}(x-{x1_cord})")
+                if points_or_slope =="e":
+                        break
+        
+        if main_optition =='e':
+                break
