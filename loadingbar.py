@@ -3,12 +3,12 @@ import time, os
 def pac(text, delay=0.5):
     print(text)
     time.sleep(delay)
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def pac_end(text, delay=1.0):
     print(text)
     time.sleep(delay)
-    os.system('clear') 
+    os.system('cls' if os.name == 'nt' else 'clear') 
 
 y_o_n_main = input("Do you wnat to download y or n")
 if y_o_n_main == 'y':
