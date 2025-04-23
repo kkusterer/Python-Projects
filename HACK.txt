@@ -1,2 +1,1 @@
-I am you coumputer.
-Your OS is posix .
+
