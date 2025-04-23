@@ -1,4 +1,4 @@
-# THIS CODE WRIGHTS TO 
+# This code makes a file called HACK.txt and puts info in the file.#
 import time, os, platform
 
 def tt (delay=2.0):
