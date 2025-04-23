@@ -12,7 +12,7 @@ file_path = "HACK.txt"
 
 with open(file_path, "w") as file:
     file.write("I am you coumputer.\n")
-    file.write(f"Your OS is{os_name} .\n")
+    file.write(f"Your OS is {os_name} .\n")
     file.write(f"release date {release_date} . \n")
     file.write(f"system name {system_name} . \n")
 
