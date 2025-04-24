@@ -47,6 +47,7 @@ while True:
     if main =='2':
         y_o_n_mainT = input("Do you wnat to download y or n")
     if y_o_n_mainT == 'y':
+        pac("")
         for ii in range(1,5):
             pac("loading.")
             pac("loading..")
