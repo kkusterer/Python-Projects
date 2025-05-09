@@ -5,7 +5,7 @@ def pac(text, delay=0.4):
     time.sleep(delay)
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def pac_dot(text, delay=0.2):
+def pac_dot(text, delay=0.1):
     print(text)
     time.sleep(delay)
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -21,7 +21,7 @@ while True:
         y_o_n_mainB = input("Do you wnat to download y or n")
         if y_o_n_mainB == 'y':
             pac("")
-            for i in range(3):
+            for i in range(2):
                 pac("[]")
                 pac("[][]")
                 pac("[][][]")
@@ -37,7 +37,14 @@ while True:
                 pac_dot("[.][.][.][.][.][][]")
                 pac_dot("[.][.][.][.][.][.][]")
                 pac_dot("[.][.][.][.][.][.][.]")
-                pac("done")
+                pac_dot("[.][.][.][.][.][.][]")
+                pac_dot("[.][.][.][.][.][][]")
+                pac_dot("[.][.][.][.][][][]")
+                pac_dot("[.][.][.][][][][]")
+                pac_dot("[.][.][][][][][]")
+                pac_dot("[.][][][][][][]") 
+
+                pac_end("done")
 
         if y_o_n_mainB == "n":
             pac_end("DOWNLOAD FAILED")
@@ -53,7 +60,7 @@ while True:
             pac("loading..")
             pac("loading...")
             pac("loading....") 
-        pac("done")
+        pac_end("done")
     if y_o_n_mainT == "n":
         pac_end("DOWNLOAD FAILED")
     else:
