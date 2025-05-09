@@ -1,5 +1,5 @@
 import time, os
-
+#poc stands for "PRINT AND CLEAR"
 def pac(text, delay=0.4):
     print(text)
     time.sleep(delay)
