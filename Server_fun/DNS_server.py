@@ -1,7 +1,5 @@
 
-
 import socket
-import
 
 # Create a socket object
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -20,7 +18,7 @@ while True:
     data = client_socket.recv(1023).decode()
     if  data == 'exit':
         break
-    print(f"Client says: {data}")
+    print(f"Client: {data}")
 
     if  data =='exit':
         client_socket.close()
@@ -33,11 +31,14 @@ while True:
     if data =='test':
         response = 'www.test1.com'
         client_socket.send(response.encode())
+    
+    if data =='svsu':
+        response = 'https://www.svsu.edu/'
+        client_socket.send(response.encode())
     else:
         print(f"Client says: {data}")
-        response = 'error'
+        response = ''
         client_socket.send(response.encode())
 
         
         
-

@@ -1,11 +1,6 @@
 import socket
-import webbrowser
 import os
-
-def open_url_new_window(url):
-    """Opens the given URL in a new Chrome window."""
-    if os.name == 'posix':
-        os.system(f"{url}")
+import webbrowser
 
 # Create a socket
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -26,6 +21,15 @@ while True:
         message = input("You: ")
         client_socket.send(message.encode())
         server = client_socket.recv(1023).decode()
+    
+    if server == "https://www.google.com":
+        url = server
+        webbrowser.open_new_tab(url)
+    
+    if server == "https://www.svsu.edu/":
+        url = server
+        webbrowser.open_new_tab(url)
+    
 
     else:
         print(f"Server: {server}")
@@ -35,4 +39,3 @@ while True:
 
 # Close socket
 client_socket.close()
-
