@@ -6,7 +6,7 @@ import webbrowser
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Connect to server
-client_socket.connect(('0.0.0.0', 9999))
+client_socket.connect(('0.0.0.0', 9998))
 
 # Send messages
 while True:
@@ -30,11 +30,8 @@ while True:
         url = server
         webbrowser.open_new_tab(url)
     
-
     else:
         print(f"Server: {server}")
-
-
 
 
 # Close socket

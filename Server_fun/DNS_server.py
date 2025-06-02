@@ -1,13 +1,21 @@
 
 import socket
+class admin_enter:
+    test1 = 't1' 
+    test2 = 't2'
+
+class admin_answers:
+    ans_to_test1 = 'att1'
+    ans_to_test2 = 'att2'
+
 
 # Create a socket object
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind to localhost and a port
-server_socket.bind(('0.0.0.0', 9999))
+server_socket.bind(('0.0.0.0', 9998))
 server_socket.listen(1)
-print("Server is listening on port 9999...")
+print("port 9998...")
 
 # Accept a connection
 client_socket, client_address = server_socket.accept()
@@ -35,10 +43,10 @@ while True:
     if data =='svsu':
         response = 'https://www.svsu.edu/'
         client_socket.send(response.encode())
-    else:
-        print(f"Client says: {data}")
-        response = ''
+    
+    if data =='admin':
+        response = 'entered admin'
         client_socket.send(response.encode())
-
-        
-        
+        if data == "test":
+            admin_responce = "work"
+            client_socket.send(admin_responce.encode())
