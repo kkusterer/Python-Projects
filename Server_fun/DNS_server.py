@@ -27,6 +27,7 @@ while True:
     if  data == 'exit':
         break
     print(f"Client: {data}")
+    
 
     if  data =='exit':
         client_socket.close()
@@ -50,3 +51,5 @@ while True:
         if data == "test":
             admin_responce = "work"
             client_socket.send(admin_responce.encode())
+
+    print(f"Responce: {response}")
