@@ -14,8 +14,3 @@ while True:
     if  data == 'exit':
         break
     print(f"Client says: {data}")
-    response = input("Enter reply: ")
-    client_socket.send(response.encode())
-    if response =='exit':
-        client_socket.close()
-        server_socket.close()
