@@ -16,7 +16,7 @@ def pac_end(text, delay=1.0):
     os.system('cls' if os.name == 'nt' else 'clear')
 
 while True:
-    main =input("Download bar(1) or loading text (2)")
+    main =input("Download bar(1) or loading text (2) or loading cicrle(3)")
     if main =='1':
         y_o_n_mainB = input("Do you wnat to download y or n")
         if y_o_n_mainB == 'y':
@@ -53,15 +53,29 @@ while True:
 
     if main =='2':
         y_o_n_mainT = input("Do you wnat to download y or n")
-    if y_o_n_mainT == 'y':
-        pac("")
-        for ii in range(1,5):
-            pac("loading.")
-            pac("loading..")
-            pac("loading...")
-            pac("loading....") 
-        pac_end("done")
-    if y_o_n_mainT == "n":
-        pac_end("DOWNLOAD FAILED")
-    else:
-        break
+        if y_o_n_mainT == 'y':
+            pac("")
+            for ii in range(1,5):
+                pac("loading.")
+                pac("loading..")
+                pac("loading...")
+                pac("loading....") 
+            pac_end("done")
+        if y_o_n_mainT == "n":
+            pac_end("DOWNLOAD FAILED")
+        else:
+            break
+
+
+    if main == '3':
+        y_o_n_mainT = input("Do you wnat to download y or n")
+        if y_o_n_mainT == 'y':
+            for i in range(5):
+                os.system("clear")
+                pac("|")
+                pac("/")
+                pac("-")
+                pac("\\")
+            print("done")
+        if y_o_n_mainT == "n":
+            pac_end("DOWNLOAD FAILED")
