@@ -1,12 +1,16 @@
 import socket
 import os
 import time
-port = 9999
+PORT = 9999
+HOST = "0.0.0.0"
 i = 0
 
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-client_socket.connect(('0.0.0.0', port))
+try:
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((HOST, PORT))
+except (ConnectionRefusedError, TimeoutError, OSError):
+    print("Error: Could not connect to the server.")
+    exit(1)  # cleanly quit without traceback
 
 
 while True:
@@ -77,7 +81,7 @@ if i == 2:
     def cmd_clear(args):
         clear_screen()
 
-    def cmd_test(args):
+    def cmd_encode(args):
         while True:
             choice = input("encode(1), decode(2), quit(0): ")
             if choice not in ["0", "1", "2"]:
@@ -205,7 +209,7 @@ if i == 2:
         "pwd": cmd_pwd,
         "help": cmd_help,
         "exit": cmd_exit,
-        "test": cmd_test,
+        "encode": cmd_encode,
         "clear": cmd_clear,
     }
 

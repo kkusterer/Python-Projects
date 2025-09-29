@@ -1,6 +1,7 @@
 import socket
 
 PORT = 9999
+HOST = "0.0.0.0"
 
 CREDENTIALS = [
     {"username": "kaleb", "password": "1234", "id": "1"},
@@ -10,13 +11,13 @@ CREDENTIALS = [
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-server_socket.bind(('0.0.0.0', PORT))
+server_socket.bind((HOST, PORT))
 server_socket.listen(1)
 print(f"Server listening on port {PORT}...")
 
 while True:
     client_socket, client_address = server_socket.accept()
-    print("-----------------------------------------------------------------------")
+    print("------------------------------------------------------------")
     print(f"Connected to {client_address}")
 
     try:
