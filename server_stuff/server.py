@@ -1,6 +1,6 @@
 import socket
 
-PORT = 65535
+PORT = 9999
 USERNAME = "kaleb"
 PASSWORD = "1234"
 
@@ -12,13 +12,13 @@ print(f"Server listening on port {PORT}...")
 
 while True:
     client_socket, client_address = server_socket.accept()
+    print("--------------------------------------------")
     print(f"Connected to {client_address}")
 
     try:
-        # Handle username
         while True:
             data = client_socket.recv(1024)
-            if not data:  # client closed connection
+            if not data:
                 raise ConnectionResetError
             user_user = data.decode()
             if user_user == USERNAME:
@@ -28,10 +28,9 @@ while True:
             else:
                 client_socket.send(b'2')
 
-        # Handle password
         while True:
             data = client_socket.recv(1024)
-            if not data:  # client closed connection
+            if not data: 
                 raise ConnectionResetError
             user_pass = data.decode()
             if user_pass == PASSWORD:
@@ -53,5 +52,4 @@ while True:
 
     except (BrokenPipeError, ConnectionResetError):
         print(f"Client {client_address} disconnected")
-    finally:
         client_socket.close()

@@ -1,7 +1,7 @@
 import socket
 import os
 import time
-port = 65535
+port = 9999
 i = 0
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,16 +31,10 @@ while True:
 
 if i == 2:
     
-    # ==========================
-    # Globals
-    # ==========================
     running = True
 
     MAX_CONTENT = 256
 
-    # ==========================
-    # File system classes
-    # ==========================
     class Node:
         def __init__(self, name, is_dir):
             self.name = name
@@ -52,9 +46,7 @@ if i == 2:
     root = Node("", True)
     current_dir = root
 
-    # ==========================
-    # Helpers
-    # ==========================
+    
     def clear_screen():
         os.system("cls" if os.name == "nt" else "clear")
 
@@ -77,9 +69,6 @@ if i == 2:
         else:
             print(f"Error: too many children in {parent.name}")
 
-    # ==========================
-    # Commands
-    # ==========================
     def cmd_exit(args):
         global running
         shutdown_os()
@@ -99,7 +88,7 @@ if i == 2:
             key = int(input("Enter key: "))
             text = input("Enter string: ")
             result = ""
-            if choice == "1":  # encode
+            if choice == "1":
                 for c in text:
                     if c.isupper():
                         result += chr((ord(c) - ord('A') + key) % 26 + ord('A'))
@@ -108,7 +97,7 @@ if i == 2:
                     else:
                         result += c
                 print("Encoded string:", result)
-            else:  # decode
+            else:
                 for c in text:
                     if c.isupper():
                         result += chr((ord(c) - ord('A') - key + 26) % 26 + ord('A'))
@@ -206,9 +195,6 @@ if i == 2:
         print("  test           - dev stuff rn         ")
         print("----------------------------------------")
 
-    # ==========================
-    # Command dispatcher
-    # ==========================
     commands = {
         "ls": cmd_ls,
         "cd": cmd_cd,
@@ -232,9 +218,6 @@ if i == 2:
         else:
             print(f"Unknown command: {cmd}")
 
-    # ==========================
-    # Main loop
-    # ==========================
     def main():
         global current_dir
         clear_screen()
@@ -244,8 +227,6 @@ if i == 2:
         while running:
             input_line = input("KalebOS> ")
             handle_command(input_line)
-
-
 
 else:
     print("wrong username or password")
