@@ -1,34 +1,39 @@
-import os
+while True:
+    choice = input("encode(1), decode(2), quit(0): ")
+    if choice not in ["0", "1", "2"]:
+        print("Please choose 1, 2, or 0.")
+        continue
+    if choice == "0":
+        break
 
-def data(main_messege):
-    a, A ="!", "!"
-    b, B ="!", "!"
-    c, C ="!", "!"
-    d , D ="!", "!"
-    e , E ="!", "!"
-    f , F ="!", "!"
-    g , G ="!", "!"
-    h , H ="!", "!"
-    i , I ="!", "!"
-    j , J ="!", "!"
-    k , K ="!", "!"
-    l , L ="!", "!"
-    m , M ="!", "!"
-    n , N ="!", "!"
-    o , O ="!", "!"
-    p , P ="!", "!"
-    q , Q ="!", "!"
-    r , R ="!", "!"
-    s , S ="!", "!"
-    t , T ="!", "!"
-    u , U ="!", "!"
-    v , V ="!", "!"
-    w , W ="!", "!"
-    x , X ="!", "!"
-    y , Y ="!", "!"
-    z , Z ="!", "!"
-    
-main_messege = input("Messege: ")
-for i in main_messege:
-    data
-    print(i)
+    try:
+        key = int(input("Enter key: "))
+    except ValueError:
+        print("key must be a number")
+        continue
+
+    text = input("Enter string: ")
+    result = ""
+
+    if choice == "1":
+        for c in text:
+            if c == " ":
+                result += " "
+            elif c.isupper():
+                result += chr((ord(c) - ord('A') + key) % 26 + ord('A'))
+            elif c.islower():
+                result += chr((ord(c) - ord('a') + key) % 26 + ord('a'))
+            else:
+                result += c
+        print("Encoded string:", result)
+    else:
+        for c in text:
+            if c == " ":
+                result += " "
+            elif c.isupper():
+                result += chr((ord(c) - ord('A') - key + 26) % 26 + ord('A'))
+            elif c.islower():
+                result += chr((ord(c) - ord('a') - key + 26) % 26 + ord('a'))
+            else:
+                result += c
+        print("Decoded string:", result)

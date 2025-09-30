@@ -1,6 +1,7 @@
 import socket
-import os
 import time
+import os
+import webbrowser
 PORT = 9999
 HOST = "0.0.0.0"
 i = 0
@@ -10,7 +11,7 @@ try:
     client_socket.connect((HOST, PORT))
 except (ConnectionRefusedError, TimeoutError, OSError):
     print("Error: Could not connect to the server.")
-    exit(1)  # cleanly quit without traceback
+    exit(1)
 
 
 while True:
@@ -34,7 +35,7 @@ while True:
         print("enter correct password")
 
 if i == 2:
-    
+
     running = True
 
     MAX_CONTENT = 256
@@ -47,10 +48,17 @@ if i == 2:
             self.parent = None
             self.children = []
 
-    root = Node("", True)
-    current_dir = root
+    def cmd_search(args):
+        if not args:
+            print("Usage: search <query>")
+            return
+        
+        query = args.replace(" ", "+")
+        url = "https://www.google.com/search?q=" + query
 
-    
+        webbrowser.open(url)
+        print(f"Searching the web for: {args}")
+
     def clear_screen():
         os.system("cls" if os.name == "nt" else "clear")
 
@@ -73,6 +81,14 @@ if i == 2:
         else:
             print(f"Error: too many children in {parent.name}")
 
+
+    root = Node("", True)
+    current_dir = root
+
+    readme = Node("readme.txt", False)
+    readme.content = "Welcome to KalebOS \nType 'help' to see commands"
+    add_child(root, readme)
+
     def cmd_exit(args):
         global running
         shutdown_os()
@@ -89,12 +105,21 @@ if i == 2:
                 continue
             if choice == "0":
                 break
-            key = int(input("Enter key: "))
+
+            try:
+                key = int(input("Enter key: "))
+            except ValueError:
+                print("key must be a number")
+                continue
+
             text = input("Enter string: ")
             result = ""
+
             if choice == "1":
                 for c in text:
-                    if c.isupper():
+                    if c == " ":
+                        result += " "
+                    elif c.isupper():
                         result += chr((ord(c) - ord('A') + key) % 26 + ord('A'))
                     elif c.islower():
                         result += chr((ord(c) - ord('a') + key) % 26 + ord('a'))
@@ -103,13 +128,16 @@ if i == 2:
                 print("Encoded string:", result)
             else:
                 for c in text:
-                    if c.isupper():
+                    if c == " ":
+                        result += " "
+                    elif c.isupper():
                         result += chr((ord(c) - ord('A') - key + 26) % 26 + ord('A'))
                     elif c.islower():
                         result += chr((ord(c) - ord('a') - key + 26) % 26 + ord('a'))
                     else:
                         result += c
                 print("Decoded string:", result)
+
 
     def cmd_ls(args):
         for c in current_dir.children:
@@ -185,19 +213,36 @@ if i == 2:
 
     def cmd_help(args):
         print("----------------------------------------")
-        print("Commands:                               ")
-        print("  ls             - list files           ")
-        print("  cd DIR         - change directory     ")
-        print("  mkdir DIR      - create directory     ")
-        print("  touch FILE     - create file          ")
-        print("  echo TEXT > F  - write to file        ")
-        print("  cat FILE       - show file contents   ")
-        print("  pwd            - show current path    ")
-        print("  help           - show this menu       ")
-        print("  exit           - quit KalebOS         ")
-        print("  clear          - clears the screen    ")
-        print("  test           - dev stuff rn         ")
+        print("KalebOS Command Guide:")
+        print()
+        print("File/Folder Commands:")
+        print("  ls                 - List files and folders in current directory")
+        print("  cd DIR             - Change directory to DIR (use '..' to go up)")
+        print("  mkdir DIR          - Create a new folder named DIR")
+        print("  touch FILE         - Create a new empty file named FILE")
+        print("  echo TEXT > FILE   - Write TEXT into FILE (creates if missing)")
+        print("  cat FILE           - Show contents of FILE")
+        print("  pwd                - Show the current folder path")
+        print()
+        print("Utility Commands:")
+        print("  clear              - Clear the terminal screen")
+        print("  exit               - Exit the os")
+        print("  help               - Shows help menu")
+        print()
+        print("Fun / Experimental Commands:")
+        print("  encode             - Encode or decode a string using a Caesar cipher")
+        print("  search QUERY       - Open your browser and search QUERY on the web")
+        print()
+        print("Usage Examples:")
+        print("  ls")
+        print("  cd docs")
+        print("  mkdir new_folder")
+        print("  touch notes.txt")
+        print("  echo Hello World > notes.txt")
+        print("  cat notes.txt")
+        print("  search Python tutorials")
         print("----------------------------------------")
+
 
     commands = {
         "ls": cmd_ls,
@@ -211,6 +256,7 @@ if i == 2:
         "exit": cmd_exit,
         "encode": cmd_encode,
         "clear": cmd_clear,
+        "serch": cmd_search,
     }
 
     def handle_command(input_line):
@@ -231,6 +277,10 @@ if i == 2:
         while running:
             input_line = input("KalebOS> ")
             handle_command(input_line)
+
+    if __name__ == "__main__":
+        main()
+
 
 else:
     print("wrong username or password")
