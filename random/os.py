@@ -267,7 +267,7 @@ def cmd_help(args):
     print("Experimental Commands:")
     print("  encode             - Encode or decode a string using a Caesar cipher")
     print("  search QUERY       - Open your browser and search QUERY on the web")
-    print("  info               - Gives informatation of you machine and cpu")
+    print("  info               - Gives information of you machine and cpu")
     print("  calc               - opens calaulator")
     print("----------------------------------------------------------------------")
     print("Usage Examples:")
