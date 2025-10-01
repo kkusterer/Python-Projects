@@ -2,6 +2,8 @@ import os
 import time
 import webbrowser
 import platform
+import datetime
+from datetime import datetime
 
 running = True
 
@@ -25,6 +27,53 @@ def cmd_search(args):
 
     webbrowser.open(url)
     print(f"Searching the web for: {args}")
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    return x / y
+
+def cmd_calc(agu):
+    def calculator():
+        print("Select operation:")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+
+        while True:
+            choice = input("Enter choice (1/2/3/4): ")
+
+            if choice in ['1', '2', '3', '4']:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+
+                if choice == '1':
+                    print(f"{num1} + {num2} = {add(num1, num2)}")
+                elif choice == '2':
+                    print(f"{num1} - {num2} = {subtract(num1, num2)}")
+                elif choice == '3':
+                    print(f"{num1} * {num2} = {multiply(num1, num2)}")
+                elif choice == '4':
+                    print(f"{num1} / {num2} = {divide(num1, num2)}")
+            else:
+                print("Invalid input")
+
+            next_calculation = input("Do you want to perform another calculation? (yes/no): ")
+            if next_calculation.lower() != 'yes':
+                break
+
+    calculator()
+
 
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
@@ -68,6 +117,7 @@ def cmd_exit(args):
 
 def cmd_clear(args):
     clear_screen()
+
 
 def cmd_encode(args):
     while True:
@@ -197,9 +247,9 @@ def cmd_pwd(args):
     print(path if path != "/" else "/")
 
 def cmd_help(args):
-    print("----------------------------------------")
+    print("----------------------------------------------------------------------")
     print("KalebOS Command Guide:")
-    print()
+    print("----------------------------------------------------------------------")
     print("File/Folder Commands:")
     print("  ls                 - List files and folders in current directory")
     print("  cd DIR             - Change directory to DIR (use '..' to go up)")
@@ -208,17 +258,18 @@ def cmd_help(args):
     print("  echo TEXT > FILE   - Write TEXT into FILE (creates if missing)")
     print("  cat FILE           - Show contents of FILE")
     print("  pwd                - Show the current folder path")
-    print()
+    print("----------------------------------------------------------------------")
     print("Utility Commands:")
     print("  clear              - Clear the terminal screen")
     print("  exit               - Exit the os")
     print("  help               - Shows help menu")
-    print()
+    print("----------------------------------------------------------------------")
     print("Experimental Commands:")
     print("  encode             - Encode or decode a string using a Caesar cipher")
     print("  search QUERY       - Open your browser and search QUERY on the web")
     print("  info               - Gives informatation of you machine and cpu")
-    print()
+    print("  calc               - opens calaulator")
+    print("----------------------------------------------------------------------")
     print("Usage Examples:")
     print("  ls")
     print("  cd docs")
@@ -227,7 +278,7 @@ def cmd_help(args):
     print("  echo Hello World > notes.txt")
     print("  cat notes.txt")
     print("  search Python tutorials")
-    print("----------------------------------------")
+    print("----------------------------------------------------------------------")
 
 
 commands = {
@@ -244,6 +295,8 @@ commands = {
     "clear": cmd_clear,
     "search": cmd_search,
     "info": cmd_info,
+    "calc": cmd_calc,
+    
 }
 
 def handle_command(input_line):
