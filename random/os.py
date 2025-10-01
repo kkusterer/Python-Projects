@@ -55,6 +55,11 @@ readme = Node("readme.txt", False)
 readme.content = "Welcome to KalebOS \nType 'help' to see commands"
 add_child(root, readme)
 
+authors = Node("authors.txt", False)
+authors.content = "The authors shall be listed as such:\nName, Email, what thay did\nKaleb Kusterer, kkusterer@students.vlhs.com, main devloper"
+add_child(root, authors)
+
+
 def cmd_exit(args):
     global running
     shutdown_os()
