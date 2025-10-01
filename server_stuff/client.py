@@ -2,6 +2,8 @@ import socket
 import time
 import os
 import webbrowser
+import platform
+
 PORT = 9999
 HOST = "0.0.0.0"
 i = 0
@@ -59,13 +61,64 @@ if i == 2:
         webbrowser.open(url)
         print(f"Searching the web for: {args}")
 
+    def add(x, y):
+        return x + y
+
+    def subtract(x, y):
+        return x - y
+
+    def multiply(x, y):
+        return x * y
+
+    def divide(x, y):
+        if y == 0:
+            return "Error! Division by zero."
+        return x / y
+
+    def cmd_calc(agu):
+        def calculator():
+            print("Select operation:")
+            print("1. Add")
+            print("2. Subtract")
+            print("3. Multiply")
+            print("4. Divide")
+
+            while True:
+                choice = input("Enter choice (1/2/3/4): ")
+
+                if choice in ['1', '2', '3', '4']:
+                    num1 = float(input("Enter first number: "))
+                    num2 = float(input("Enter second number: "))
+
+                    if choice == '1':
+                        print(f"{num1} + {num2} = {add(num1, num2)}")
+                    elif choice == '2':
+                        print(f"{num1} - {num2} = {subtract(num1, num2)}")
+                    elif choice == '3':
+                        print(f"{num1} * {num2} = {multiply(num1, num2)}")
+                    elif choice == '4':
+                        print(f"{num1} / {num2} = {divide(num1, num2)}")
+                else:
+                    print("Invalid input")
+
+                next_calculation = input("Do you want to perform another calculation? (yes/no): ")
+                if next_calculation.lower() != 'yes':
+                    break
+
+        calculator()
+
+
     def clear_screen():
         os.system("cls" if os.name == "nt" else "clear")
+
+    def cmd_hi(aug):
+        print("you found an easter egg")
+        print("thislinehasnospaces")
 
     def shutdown_os():
         clear_screen()
         print("Shutting down KalebOS...")
-        time.sleep(5)
+        time.sleep(3)
         clear_screen()
 
     def find_child(dir_node, name):
@@ -89,6 +142,11 @@ if i == 2:
     readme.content = "Welcome to KalebOS \nType 'help' to see commands"
     add_child(root, readme)
 
+    authors = Node("authors.txt", False)
+    authors.content = "The authors shall be listed as such:\nName, Email, what thay did\nKaleb Kusterer, kkusterer@students.vlhs.com, main devloper"
+    add_child(root, authors)
+
+
     def cmd_exit(args):
         global running
         shutdown_os()
@@ -96,6 +154,7 @@ if i == 2:
 
     def cmd_clear(args):
         clear_screen()
+
 
     def cmd_encode(args):
         while True:
@@ -138,6 +197,19 @@ if i == 2:
                         result += c
                 print("Decoded string:", result)
 
+
+    def cmd_info(arg):
+        os_name = os.name
+        release_date = platform.release()
+        system_name = platform.system()
+        processor_name = platform.processor()
+        architecture_details = platform.architecture()
+
+        print(f"OS name: {os_name}")
+        print(f"Release date: {release_date}")
+        print(f"system: {system_name}")
+        print(f"processor: {processor_name}")
+        print(f"architecture details: {architecture_details}")
 
     def cmd_ls(args):
         for c in current_dir.children:
@@ -212,9 +284,9 @@ if i == 2:
         print(path if path != "/" else "/")
 
     def cmd_help(args):
-        print("----------------------------------------")
+        print("----------------------------------------------------------------------")
         print("KalebOS Command Guide:")
-        print()
+        print("----------------------------------------------------------------------")
         print("File/Folder Commands:")
         print("  ls                 - List files and folders in current directory")
         print("  cd DIR             - Change directory to DIR (use '..' to go up)")
@@ -223,16 +295,18 @@ if i == 2:
         print("  echo TEXT > FILE   - Write TEXT into FILE (creates if missing)")
         print("  cat FILE           - Show contents of FILE")
         print("  pwd                - Show the current folder path")
-        print()
+        print("----------------------------------------------------------------------")
         print("Utility Commands:")
         print("  clear              - Clear the terminal screen")
         print("  exit               - Exit the os")
         print("  help               - Shows help menu")
-        print()
-        print("Fun / Experimental Commands:")
+        print("----------------------------------------------------------------------")
+        print("Experimental Commands:")
         print("  encode             - Encode or decode a string using a Caesar cipher")
         print("  search QUERY       - Open your browser and search QUERY on the web")
-        print()
+        print("  info               - Gives information of you machine and cpu")
+        print("  calc               - opens calaulator")
+        print("----------------------------------------------------------------------")
         print("Usage Examples:")
         print("  ls")
         print("  cd docs")
@@ -241,7 +315,7 @@ if i == 2:
         print("  echo Hello World > notes.txt")
         print("  cat notes.txt")
         print("  search Python tutorials")
-        print("----------------------------------------")
+        print("----------------------------------------------------------------------")
 
 
     commands = {
@@ -251,12 +325,16 @@ if i == 2:
         "touch": cmd_touch,
         "echo": cmd_echo,
         "cat": cmd_cat,
+        "hi": cmd_hi,
         "pwd": cmd_pwd,
         "help": cmd_help,
         "exit": cmd_exit,
         "encode": cmd_encode,
         "clear": cmd_clear,
-        "serch": cmd_search,
+        "search": cmd_search,
+        "info": cmd_info,
+        "calc": cmd_calc,
+        
     }
 
     def handle_command(input_line):

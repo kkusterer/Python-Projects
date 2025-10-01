@@ -2,8 +2,6 @@ import os
 import time
 import webbrowser
 import platform
-import datetime
-from datetime import datetime
 
 running = True
 
@@ -77,6 +75,10 @@ def cmd_calc(agu):
 
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
+
+def cmd_hi(aug):
+    print("you found an easter egg")
+    print("thislinehasnospaces")
 
 def shutdown_os():
     clear_screen()
@@ -288,6 +290,7 @@ commands = {
     "touch": cmd_touch,
     "echo": cmd_echo,
     "cat": cmd_cat,
+    "hi": cmd_hi,
     "pwd": cmd_pwd,
     "help": cmd_help,
     "exit": cmd_exit,
