@@ -195,7 +195,7 @@ def cmd_help(args):
     print("  exit               - Exit the os")
     print("  help               - Shows help menu")
     print()
-    print("Fun / Experimental Commands:")
+    print("Experimental Commands:")
     print("  encode             - Encode or decode a string using a Caesar cipher")
     print("  search QUERY       - Open your browser and search QUERY on the web")
     print()
@@ -222,7 +222,7 @@ commands = {
     "exit": cmd_exit,
     "encode": cmd_encode,
     "clear": cmd_clear,
-    "serch": cmd_search,
+    "search": cmd_search,
 }
 
 def handle_command(input_line):
