@@ -1,6 +1,7 @@
 import os
 import time
 import webbrowser
+import platform
 
 running = True
 
@@ -31,7 +32,7 @@ def clear_screen():
 def shutdown_os():
     clear_screen()
     print("Shutting down KalebOS...")
-    time.sleep(5)
+    time.sleep(3)
     clear_screen()
 
 def find_child(dir_node, name):
@@ -109,6 +110,19 @@ def cmd_encode(args):
                     result += c
             print("Decoded string:", result)
 
+
+def cmd_info(arg):
+    os_name = os.name
+    release_date = platform.release()
+    system_name = platform.system()
+    processor_name = platform.processor()
+    architecture_details = platform.architecture()
+
+    print(f"OS name: {os_name}")
+    print(f"Release date: {release_date}")
+    print(f"system: {system_name}")
+    print(f"processor: {processor_name}")
+    print(f"architecture details: {architecture_details}")
 
 def cmd_ls(args):
     for c in current_dir.children:
@@ -203,6 +217,7 @@ def cmd_help(args):
     print("Experimental Commands:")
     print("  encode             - Encode or decode a string using a Caesar cipher")
     print("  search QUERY       - Open your browser and search QUERY on the web")
+    print("  info               - Gives informatation of you machine and cpu")
     print()
     print("Usage Examples:")
     print("  ls")
@@ -228,6 +243,7 @@ commands = {
     "encode": cmd_encode,
     "clear": cmd_clear,
     "search": cmd_search,
+    "info": cmd_info,
 }
 
 def handle_command(input_line):
