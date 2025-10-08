@@ -9,7 +9,7 @@ Fission_produts = int(neutrons_to_add) + 2
 
 start_time = time.perf_counter()
 
-while neutron_num < 1000:
+while neutron_num < 100:
 
     time.sleep(.1)
 
