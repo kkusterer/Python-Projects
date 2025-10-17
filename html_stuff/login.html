@@ -32,10 +32,8 @@
   </form>
 
   <script>
-    // --- Demo credentials (client-side only!) ---
-    // For real apps, never store credentials in client-side code.
-    const DEMO_USERNAME = "student";
-    const DEMO_PASSWORD = "password123";
+    const DEMO_USERNAME = "kaleb";
+    const DEMO_PASSWORD = "1234";
 
     const form = document.getElementById("loginForm");
     const usernameInput = document.getElementById("username");
@@ -43,21 +41,20 @@
     const message = document.getElementById("message");
 
     form.addEventListener("submit", function(event) {
-      event.preventDefault(); // don't reload the page
+      event.preventDefault(); // stop page reload
 
       const username = usernameInput.value.trim();
       const password = passwordInput.value;
 
       if (username === DEMO_USERNAME && password === DEMO_PASSWORD) {
-        message.textContent = "Login successful!";
-        message.className = "msg success";
-        // You can redirect or show protected content here:
-        // window.location.href = "protected.html";
+        // ✅ Clear the whole page and show success text
+        document.body.innerHTML = "<h1>Welcome, " + username + "!</h1><p>Access granted ✅</p>";
       } else {
         message.textContent = "Incorrect username or password. Try again.";
         message.className = "msg error";
-        passwordInput.value = "";      // clear the password field
-        passwordInput.focus();         // focus so the user can try again
+        passwordInput.value = "";
+        usernameInput.value = "";
+        usernameInput.focus();
       }
     });
   </script>
