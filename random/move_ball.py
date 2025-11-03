@@ -17,7 +17,6 @@ def main(stdscr):
         stdscr.clear()
 
         speed_text = f"Speed: {speed}"
-
         stdscr.addstr(0, 0, speed_text)
 
 
