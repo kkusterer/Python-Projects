@@ -4,7 +4,7 @@ import os
 
 class LoginHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        # Serve HTML page
+        # give page
         if self.path == "/" or self.path == "/login.html":
             self.send_response(200)
             self.send_header("Content-type", "text/html")
@@ -12,7 +12,7 @@ class LoginHandler(BaseHTTPRequestHandler):
             with open("login.html", "rb") as f:
                 self.wfile.write(f.read())
 
-        # Serve image file
+        # imige
         elif self.path.endswith(".png") or self.path.endswith(".jpg") or self.path.endswith(".jpeg") or self.path.endswith(".ico"):
             try:
                 filepath = self.path.strip("/")
